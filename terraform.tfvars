@@ -27,7 +27,6 @@ plans = {
   }
   rds_plan = {
     rules = {
-      # キー名はルール名
       rds_daily_backup_rule = {
         schedule                 = "cron(0 15 ? * * *)" // 毎日 00:00 JST
         enable_continuous_backup = false
@@ -47,7 +46,6 @@ plans = {
         copy_action              = { /* コピーしない */ }
       }
     }
-    # バックアップタグ
     condition = {
       resources = ["arn:aws:rds:*:*:db:*"]
       key       = "aws:ResourceTag/aws-backup" // aws-backup の箇所は好みのタグに変える
